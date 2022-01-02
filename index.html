@@ -9,13 +9,41 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- <style>
-        section#hero-section{
-            background-image: url("hero-image.jpg")
+    <style>
+        #hero-text::before{
+            content: '';
+            position: absolute;
+            display: block;
+            height: 200px;
+            width: 200px;
+            top: -20px;
+            left: -60px;
+            z-index: -1000;
+            opacity: 0.5;
+            background-image: radial-gradient(#3C3737 2.2px, #ffffff 2.2px);
+            background-size: 24px 24px;
         }
-    </style> -->
+
+        .nav-active{
+            text-decoration: underline;
+            text-decoration-thickness: 4px;
+            text-underline-offset: 4px;
+        }
+        #about-us-heading::before{
+            content: "About Us";
+            display: inline;
+            font-size: 10rem;
+            font: #CCC;
+            position: absolute;
+            top: -100px;
+            left: -200px;
+            font-weight: bold;
+            z-index: -100;
+            opacity: 0.1;
+        }
+    </style>
     <script>
         tailwind.config = {
             theme: {
@@ -28,7 +56,7 @@
                     'secondary-dark': '#3C3737'
                 },
                 fontFamily: {
-                    sans: ['Roboto', 'serif']
+                    sans: ['Inter', 'serif']
                 },
                 extend: {
                     fontSize: {
@@ -40,35 +68,36 @@
     </script>
 </head>
 
-<body class="text-black bg-neutral">
-    <header class="md:py-8 py-4 md:bg-transparent md:shadow-none shadow">
-        <div class="max-w-screen-lg mx-auto px-8 flex md:justify-between justify-center md:items-center block">
-            <img src="./logo.jpeg" class="h-24 w-auto " alt="">
-            <div class="hidden md:block">
-                <ul class="flex gap-x-14">
+<body class="text-black overflow-x-hidden">
+    <header class="fixed top-0 px-8 z-40 w-full transition-transform duration-500">
+        <div class="mx-auto grid grid-cols-12 items-center">
+            <div class="flex items-center gap-x-16 col-span-7 bg-white h-full py-3" id="left-navbar">
+                <h2 class="text-3xl">Logo</h2>
+                <ul class="flex gap-x-8 text-sm font-medium">
                     <li><a href="#hero-section">Home</a></li>
+                    <li><a href="#about-us-section">About Us</a></li>
                     <li><a href="#services-section">Services</a></li>
                     <li><a href="#contact-us">Contact Us</a></li>
                 </ul>
             </div>
+            <div class="col-span-5 justify-self-end">
+                <a href="#" class="px-3 py-2 bg-black text-white font-bold inline-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                    </svg>
+                    Free Consultation
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero-section" class="md:mt-12 py-8 md:background-none">
-        <div class="relative z-40 max-w-screen-lg mx-auto px-8 grid md:grid-cols-2 grid-cols-1 gap-x-12">
-            <div class="md:text-left text-center flex-col justify-center md:block">
-                <h1 class="text-hero">
-                    <span class="font-bold">One-stop-solution</span> for your <span class="font-bold">solar
-                        energy</span> and <span class="font-bold">water pump</span> needs
+    <section id="hero-section" class="h-screen relative">
+        <div class="relative mx-auto grid grid-cols-12 pl-4">
+            <div class="col-span-7 mt-40 ml-auto max-w-2xl mr-16">
+                <h1 class="text-6xl capitalize leading-snug font-bold relative" id="hero-text">
+                    One-stop-solution for your <span class="bg-black text-white">solar
+                    energy</span> and <span class="bg-black text-white">water pump</span> needs
                 </h1>
-                <p class="md:max-w-[60ch] mt-9 text-secondary-dark text-sm">
-                    Andara Energy offers a wide range of Renewable Energy Product and Services, we had long journey of
-                    Customers Education to the real Applications. many of experiences in the Engineering, Procurement
-                    and Construction (EPC). Committed to always listening and support all customers needed., with the
-                    Professional Services Including comprehensive Installation, Operation and Maintenance include on or
-                    off site – Training.
-                </p>
                 <p class="md:max-w-[60ch] mt-4 text-secondary-dark text-sm">
                     We are dedicated to use our unique experiences with the innovative technology to contribute future
                     green and Environment friendly Energy to bring Harmony of life with the spirit of Quality and
@@ -96,14 +125,37 @@
                     </a>
                 </div>
             </div>
-            <img src="./bg-hero.jpg" class="h-full md:block md:aspect-[3/4] aspect-[4/3] mt-12 md:mt-0 object-cover">
+            <div class="col-span-5 ">
+                <img src="hero.jpg" class="h-screen w-full saturate-50 object-cover" alt="solar panel">
+            </div>
         </div>
     </section>
 
-    <!-- Services -->
-    <section id="services-section" class="bg-brand text-white md:mt-36 mt-12">
+    <section class="py-40" id="about-us-section">
+        <div class="mx-auto max-w-screen-lg px-4">
+            <h2 class="text-6xl font-bold tracing tracing-wide relative z-10 capitalize" id="about-us-heading">
+                who are we?
+            </h2>
+            <p class="max-w-prose leading-relaxed mt-4">
+                Andara Energy offers a wide range of Renewable Energy Product and Services, we had long journey of Customers Education to the real Applications. many of experiences in the Engineering, Procurement and Construction (EPC). Committed to always listening and support all customers needed., with the Professional Services Including comprehensive Installation, Operation and Maintenance include on or off site – Training. 
+            </p>
+            <div class="grid grid-cols-12 mt-12 gap-6">
+                <div class="col-span-7 h-96 bg-secondary-light">
+                    <img src="about-us-1.jpg" alt="kids catching water with hand" class="object-cover h-full w-full saturate-50">
+                </div>
+                <div class="col-span-5 h-96 bg-secondary-light">
+                    <img src="about-us-2.jpg" alt="person installing solar panel" class="object-cover h-full w-full saturate-50">
+                </div>
+                <div class="col-span-12 h-96 bg-secondary-light overflow-hidden">
+                    <img src="about-us-3.jpg" alt="solar panel array" class="object-cover h-full w-full saturate-50">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services-section" class="bg-black text-white md:mt-36 mt-12">
         <div class="max-w-screen-lg mx-auto px-8 py-24">
-            <h2 class="text-5xl font-bold">Our Services</h2>
+            <h2 class="text-6xl font-bold">Our Services</h2>
             <div class="mt-20 max-w-screen-md mx-auto">
                 <div class="md:flex grid grid-cols-1 gap-x-36">
                     <div class="order-2 md:order-first mt-8 md:mt-0">
@@ -127,13 +179,13 @@
                         </a>
                     </div>
                     <img src="./service-1.png" alt=""
-                        class="order-1 w-full md:h-full md:w-auto aspect-square md:aspect-auto">
+                        class="order-1 w-full md:h-full md:w-auto aspect-square md:aspect-auto saturate-50">
                 </div>
             </div>
             <div class="mt-24 max-w-screen-md mx-auto text-right">
                 <div class="md:flex grid grid-cols-1 gap-x-36">
                     <img src="./service-2.png" alt=""
-                        class="md:order-1 order-2 w-full md:h-full md:w-auto aspect-square md:aspect-auto">
+                        class="md:order-1 order-2 w-full md:h-full md:w-auto aspect-square md:aspect-auto saturate-50">
                     <div class="order-2 md:order-1 mt-8 md:mt-0">
                         <h3 class="text-3xl md:text-4xl font-bold">Water Pump</h3>
                         <p class="text-secondary-light mt-4">
@@ -158,34 +210,19 @@
         </div>
     </section>
 
-    <footer class="py-24 md:background-none relative bg-white" id="contact-us">
-        <div class="max-w-screen-lg mx-auto px-8">
-            <h1 class="text-5xl font-bold">
-                Contact Us
-            </h1>
-            <div class="block md:grid md:grid-cols-2 md:justify-between w-full mt-12 ">
-                <div class="text-lg space-y-4">
-                    <div>
-                        <p class="text-secondary-dark">Adress</p>
-                        <p>Taman Pondok Jati T-3<br>
-                            Kab. Sidoarjo (61257), Jawa Timur</p>
-                    </div>
-                    <div>
-                        <p class="text-secondary-dark">Phone Number</p>
-                        <p>+62-813-3520-6823</p>
-                    </div>
-                    <div>
-                        <p class="text-secondary-dark">Email</p>
-                        <a href="mailto:cs@andaraenergysurabaya.co.id" class="underline decoration-4 underline-offset-8">cs@andaraenergysurabaya.co.id</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- <div class="h-screen"></div> -->
 
-    <span class="block text-center text-sm w-screen bg-brand py-2 text-white">
-        &copy; 2020 Andara Energy. All Rights Reserved
-    </span>
+    <div class="block text-center text-sm w-screen bg-white py-4 text-black font-medium">
+        <span>
+            &copy; <span id="year"></span> Andara Energy. All Rights Reserved
+        </span>
+        <span>
+            <a href="mailto:cs@andaraenergysurabaya.co.id" class="underline decoration-4 underline-offset-8">cs@andaraenergysurabaya.co.id</a>
+            <a>+62-813-3520-6823</a>
+        </span>
+    </div>
+
+    <script src="main.js"></script>
 
 
 </body>
