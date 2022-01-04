@@ -23,14 +23,17 @@ const today = new Date()
         }
         const sectionObserver = new IntersectionObserver(
             (entries, observer) => {
+                const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
                 entries.forEach(entry => {
                     console.log(entry)
                     if(entry.target.id === 'hero-section' && !entry.isIntersecting){
                         navbar.classList.add('bg-white')
                         navbar.classList.add('shadow')
                     }else if(entry.target.id === 'hero-section' && entry.isIntersecting){
-                        navbar.classList.remove('bg-white')
-                        navbar.classList.remove('shadow')
+                        if(vw > 768){
+                            navbar.classList.remove('bg-white')
+                            navbar.classList.remove('shadow')
+                        }
                     }
                 })
         }, option)

@@ -43,6 +43,14 @@
             z-index: -100;
             opacity: 0.1;
         }
+
+        @media screen and (max-width: 768px) {
+            #about-us-heading::before{
+                font-size: 4rem;
+                left: -30px;
+                top: -20px;
+            }
+        }
     </style>
     <script>
         tailwind.config = {
@@ -69,23 +77,26 @@
 </head>
 
 <body class="text-black overflow-x-hidden">
-    <header class="fixed top-0 px-8 z-40 w-full transition-transform duration-500">
+    <header class="fixed top-0 px-8 z-40 w-full transition-transform duration-500 bg-white md:bg-transparent">
         <div class="mx-auto grid grid-cols-12 items-center">
             <div class="flex items-center gap-x-16 col-span-7 bg-white h-full py-3" id="left-navbar">
                 <h2 class="text-3xl">Logo</h2>
-                <ul class="flex gap-x-8 text-sm font-medium">
+                <ul class="md:flex gap-x-8 text-sm font-medium hidden md:block">
                     <li><a href="#hero-section">Home</a></li>
                     <li><a href="#about-us-section">About Us</a></li>
                     <li><a href="#services-section">Services</a></li>
                     <li><a href="#contact-us">Contact Us</a></li>
                 </ul>
             </div>
-            <div class="col-span-5 justify-self-end">
-                <a href="#" class="px-3 py-2 bg-black text-white font-bold inline-block">
+            <div class="col-span-5 justify-self-end text-xs">
+                <a href="https://wa.me/6281335206823?text=Saya%20ingin%20berkonsultasi%20dengan%20Andara%20Energy%20Surabaya" class="px-3 py-2 bg-black text-white font-bold inline-block">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline mr-2" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                     </svg>
-                    Free Consultation
+                    <span class="hidden md:inline">
+                        Free Consultation
+                    </span>
+                    <span class="md:hidden inline">Contact Us</span>
                 </a>
             </div>
         </div>
@@ -93,8 +104,8 @@
 
     <section id="hero-section" class="h-screen relative">
         <div class="relative mx-auto grid grid-cols-12 pl-4">
-            <div class="col-span-7 mt-40 ml-auto max-w-2xl mr-16">
-                <h1 class="text-6xl capitalize leading-snug font-bold relative" id="hero-text">
+            <div class="md:col-span-7 col-span-12 mt-32 ml-auto max-w-2xl mr-16">
+                <h1 class="md:text-6xl text-4xl capitalize md:leading-snug leading-snug font-bold relative" id="hero-text">
                     One-stop-solution for your <span class="bg-black text-white">solar
                     energy</span> and <span class="bg-black text-white">water pump</span> needs
                 </h1>
@@ -103,7 +114,7 @@
                     green and Environment friendly Energy to bring Harmony of life with the spirit of Quality and
                     Integrity.
                 </p>
-                <div class="mt-16 space-x-12 font-bold flex flex-col md:block">
+                <div class="mt-16 md:space-x-12 font-bold flex flex-col md:block">
                     <a href="https://wa.me/6281335206823?text=Saya%20ingin%20berkonsultasi%20dengan%20Andara%20Energy%20Surabaya"
                         target="_blank" class="underline decoration-4 underline-offset-4">
                         Get Free Consultation
@@ -125,7 +136,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-span-5 ">
+            <div class="md:col-span-5 hidden md:block">
                 <img src="hero.jpg" class="h-screen w-full saturate-50 object-cover" alt="solar panel">
             </div>
         </div>
@@ -133,20 +144,20 @@
 
     <section class="py-40" id="about-us-section">
         <div class="mx-auto max-w-screen-lg px-4">
-            <h2 class="text-6xl font-bold tracing tracing-wide relative z-10 capitalize" id="about-us-heading">
+            <h2 class="md:text-6xl text-4xl font-bold tracing tracing-wide relative z-10 capitalize" id="about-us-heading">
                 who are we?
             </h2>
-            <p class="max-w-prose leading-relaxed mt-4">
+            <p class="max-w-prose leading-relaxed mt-4 text-sm">
                 Andara Energy offers a wide range of Renewable Energy Product and Services, we had long journey of Customers Education to the real Applications. many of experiences in the Engineering, Procurement and Construction (EPC). Committed to always listening and support all customers needed., with the Professional Services Including comprehensive Installation, Operation and Maintenance include on or off site – Training. 
             </p>
             <div class="grid grid-cols-12 mt-12 gap-6">
-                <div class="col-span-7 h-96 bg-secondary-light">
+                <div class="md:col-span-7 col-span-6 md:h-96 h-64 bg-secondary-light">
                     <img src="about-us-1.jpg" alt="kids catching water with hand" class="object-cover h-full w-full saturate-50">
                 </div>
-                <div class="col-span-5 h-96 bg-secondary-light">
+                <div class="md:col-span-5 col-span-6 md:h-96 h-64 bg-secondary-light">
                     <img src="about-us-2.jpg" alt="person installing solar panel" class="object-cover h-full w-full saturate-50">
                 </div>
-                <div class="col-span-12 h-96 bg-secondary-light overflow-hidden">
+                <div class="col-span-12 md:h-96 h-64 bg-secondary-light overflow-hidden">
                     <img src="about-us-3.jpg" alt="solar panel array" class="object-cover h-full w-full saturate-50">
                 </div>
             </div>
@@ -155,11 +166,11 @@
     
     <section id="services-section" class="bg-black text-white md:mt-36 mt-12">
         <div class="max-w-screen-lg mx-auto px-8 py-24">
-            <h2 class="text-6xl font-bold">Our Services</h2>
+            <h2 class="md:text-6xl text-4xl font-bold">Our Services</h2>
             <div class="mt-20 max-w-screen-md mx-auto">
                 <div class="md:flex grid grid-cols-1 gap-x-36">
                     <div class="order-2 md:order-first mt-8 md:mt-0">
-                        <h3 class="text-3xl md:text-4xl font-bold">PV Installation, Service, Operation & Maintenance
+                        <h3 class="text-2xl md:text-4xl font-bold">PV Installation, Service, Operation & Maintenance
                         </h3>
                         <p class="text-secondary-light mt-4">
                             Nation wide Electrical & Mechanical Engineering and Installation of Renewable Energy System.
@@ -187,7 +198,7 @@
                     <img src="./service-2.png" alt=""
                         class="md:order-1 order-2 w-full md:h-full md:w-auto aspect-square md:aspect-auto saturate-50">
                     <div class="order-2 md:order-1 mt-8 md:mt-0">
-                        <h3 class="text-3xl md:text-4xl font-bold">Water Pump</h3>
+                        <h3 class="text-2xl md:text-4xl font-bold">Water Pump</h3>
                         <p class="text-secondary-light mt-4">
                             Offer High Quality Photovoltaic system with Detail Engineering for Any Water Pump
                             requirement, Drink Water, Irrigation, Salt water with reverse osmosis or other water
@@ -213,12 +224,12 @@
     <!-- <div class="h-screen"></div> -->
 
     <div class="block text-center text-sm w-screen bg-white py-4 text-black font-medium">
+        <div class="flex flex-col md:flex-row justify-center md:items-center gap-y-2 md:gap-x-2 mb-2">
+            <a href="mailto:cs@andaraenergysurabaya.co.id" class="underline decoration-4 underline-offset-4">cs@andaraenergysurabaya.co.id</a>
+            <a href="https://wa.me/6281335206823?text=Saya%20ingin%20berkonsultasi%20dengan%20Andara%20Energy%20Surabaya">+62-813-3520-6823</a>
+        </div>
         <span>
             &copy; <span id="year"></span> Andara Energy. All Rights Reserved
-        </span>
-        <span>
-            <a href="mailto:cs@andaraenergysurabaya.co.id" class="underline decoration-4 underline-offset-8">cs@andaraenergysurabaya.co.id</a>
-            <a>+62-813-3520-6823</a>
         </span>
     </div>
 
